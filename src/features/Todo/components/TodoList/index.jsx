@@ -5,7 +5,7 @@ TodoList.propTypes = {
   todoList: PropTypes.array,
 };
 
-TodoList.defaultProp = {
+TodoList.defaultProps = {
   todoList: [],
 };
 
@@ -14,9 +14,9 @@ function TodoList(props) {
 
   return (
     <ul>
-      {todoList.map((todo) => {
-        <li key={todo.id}>{todo.title}</li>;
-      })}
+      {todoList.map((todo) => (
+        <li key={todo.id}>{todo.title}</li>
+      ))}
     </ul>
   );
 }
