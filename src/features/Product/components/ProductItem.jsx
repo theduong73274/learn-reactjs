@@ -1,4 +1,5 @@
-import { Box, CardMedia, makeStyles, Typography } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
+import { STATIC_HOST, THUMBNAIL_PLACEHOLDER } from 'constants/index';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -8,6 +9,12 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%',
 		marginBottom: theme.spacing(1),
 	},
+
+	thumbnail: {
+		width:'100%',
+		height:'100%',
+		objectFit: 'cover'
+	}
 }));
 
 ProductItem.propTypes = {
@@ -16,18 +23,22 @@ ProductItem.propTypes = {
 
 function ProductItem({ product }) {
 	const classes = useStyles();
+	const thumbnailUrl = product.thumbnail? `${STATIC_HOST}${product.thumbnail?.url}` : THUMBNAIL_PLACEHOLDER
 
 	return (
 		<Box padding={1}>
-			{/* <Skeleton variant="rect" width="100%" height={118} /> */}
-			<CardMedia
-				className={classes.media}
-				image="https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68"
-				title="Contemplative Reptile"
-			/>
+			<Box className={classes.media}>
+				<img className={classes.thumbnail}
+				src={thumbnailUrl} 
+				alt={product.name} 
+				/>
+			</Box>
 			<Typography variant="body2">{product.name}</Typography>
 			<Typography variant="body2">
-				{product.salePrice} -{product.promotionPercent}
+				<Box component='span' fontSize='16px' fontWeight='bold' mr={1}>
+					{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.salePrice)}
+				</Box>
+				{product.promotionPercent > 0 ? ` -${product.promotionPercent}%` : ''}
 			</Typography>
 		</Box>
 	);
