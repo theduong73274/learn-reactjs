@@ -5,6 +5,7 @@ import productApi from 'api/productApi';
 import ProductSkeleton from 'features/Product/components/ProductSkeleton';
 import ProductList from 'features/Product/components/ProductList';
 import { Pagination } from '@material-ui/lab';
+import ProductSort from 'features/Product/components/ProductSort';
 
 const useStyles = makeStyles((theme) => ({
 	root: {},
@@ -16,6 +17,15 @@ const useStyles = makeStyles((theme) => ({
 	right: {
 		flex: '1 1 0',
 	},
+
+	pagination: {
+		display: 'flex',
+		flexFlow: 'row no-wrap',
+		justifyContent: 'center',
+
+		marginTop: '30px',
+		paddingBottom: '20px',
+	}
 }));
 
 ListPage.propTypes = {};
@@ -32,6 +42,7 @@ function ListPage(props) {
 	const [filters, setFilters] = useState({
 		_page: 1,
 		_limit: 9,
+		_sort: 'salePrice:ASC'
 	});
 
 	useEffect(() => {
@@ -49,12 +60,19 @@ function ListPage(props) {
 		})();
 	}, [filters]);
 
-	const handlePageChange = (e , page) => {
-		setFilters(prevFilters => ({
+	const handlePageChange = (e, page) => {
+		setFilters((prevFilters) => ({
 			...prevFilters,
 			_page: page,
-		}))
-	}
+		}));
+	};
+
+	const handleSortChange = (newSortValue) => {
+		setFilters((prevFilters) => ({
+			...prevFilters,
+			_sort: newSortValue,
+		}));
+	};
 
 	return (
 		<div>
@@ -67,13 +85,18 @@ function ListPage(props) {
 
 						<Grid item className={classes.right}>
 							<Paper elevation={0}>
+								<ProductSort  currentSort={filters._sort} onChange={handleSortChange}/>
+
 								{loading ? <ProductSkeleton length={9} /> : <ProductList data={productList} />}
 
-								<Pagination 
-								count={Math.ceil(pagination.total / pagination.limit) } 
-								page={pagination.page} 
-								color="primary"
-								onChange={handlePageChange} />
+								<Box className={classes.pagination}>
+									<Pagination
+										count={Math.ceil(pagination.total / pagination.limit)}
+										page={pagination.page}
+										color="primary"
+										onChange={handlePageChange}
+									/>
+								</Box>
 							</Paper>
 						</Grid>
 					</Grid>
