@@ -1,9 +1,7 @@
-import { Button } from '@material-ui/core';
 import Header from 'components/Header';
 import ProductFeature from 'features/Product';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import productApi from './api/productApi';
 import './App.css';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';

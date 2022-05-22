@@ -1,6 +1,6 @@
 .album {
     &__thumbnailUrl {
-        & > img {
+        &>img {
             width: 190px;
             border-radius: 0.5rem;
             height: 107px;

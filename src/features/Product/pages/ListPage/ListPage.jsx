@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
-import productApi from 'api/productApi';
-import ProductSkeleton from 'features/Product/components/ProductSkeleton';
-import ProductList from 'features/Product/components/ProductList';
+import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
+import productApi from 'api/productApi';
+import ProductFilters from 'features/Product/components/ProductFilters';
+import ProductList from 'features/Product/components/ProductList';
+import ProductSkeleton from 'features/Product/components/ProductSkeleton';
 import ProductSort from 'features/Product/components/ProductSort';
+import React, { useEffect, useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
-	root: {},
+	root: {
+		marginTop: theme.spacing(4),
+	},
 
 	left: {
 		width: '250px',
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 		marginTop: '30px',
 		paddingBottom: '20px',
-	}
+	},
 }));
 
 ListPage.propTypes = {};
@@ -42,7 +44,7 @@ function ListPage(props) {
 	const [filters, setFilters] = useState({
 		_page: 1,
 		_limit: 9,
-		_sort: 'salePrice:ASC'
+		_sort: 'salePrice:ASC',
 	});
 
 	useEffect(() => {
@@ -74,18 +76,27 @@ function ListPage(props) {
 		}));
 	};
 
+	const handleFiltersChange = (newFilters) => {
+		setFilters((prevFilters) => ({
+			...prevFilters,
+			...newFilters,
+		}));
+	};
+
 	return (
 		<div>
-			<Box>
+			<Box className={classes.root}>
 				<Container>
 					<Grid container spacing={1}>
 						<Grid item className={classes.left}>
-							<Paper elevation={0}>Left List</Paper>
+							<Paper elevation={0}>
+								<ProductFilters filters={filters} onChange={handleFiltersChange} />
+							</Paper>
 						</Grid>
 
 						<Grid item className={classes.right}>
 							<Paper elevation={0}>
-								<ProductSort  currentSort={filters._sort} onChange={handleSortChange}/>
+								<ProductSort currentSort={filters._sort} onChange={handleSortChange} />
 
 								{loading ? <ProductSkeleton length={9} /> : <ProductList data={productList} />}
 
