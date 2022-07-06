@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+FILTER_LIST
+- id: number
+- getLabel: (filters) => string
+- isActive: (filters) => true/false
+- isVisible: (filters) => true/false
+- isRemovable: boolean
+- onRemove: func
+- onToggle: func
