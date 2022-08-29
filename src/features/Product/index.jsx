@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
 import ListPage from './pages/ListPage/ListPage';
+import DetailPage from './pages/DetailsPage/DetailsPage';
 
 ProductFeature.propTypes = {};
 
@@ -14,7 +15,8 @@ function ProductFeature(props) {
 	return (
 		<div>
 			<Switch>
-				<Route path={match.url} component={ListPage} exact></Route>
+				<Route path={match.url} component={ListPage} exact />
+				<Route path={`${match.url}/:productId`} component={DetailPage} />
 			</Switch>
 		</div>
 	);
