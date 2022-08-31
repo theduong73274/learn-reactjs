@@ -1,8 +1,6 @@
 import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
+import ProductThumbnail from '../components/ProductThumbnail';
 
-DetailsPage.propTypes = {
-    
-};
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -39,6 +37,7 @@ function DetailsPage(props) {
                     <Grid container>
                         <Grid item className={classes.left}>
                             Thumbnail
+                            <ProductThumbnail product={{}}/>
                         </Grid>
 
                         <Grid item className={classes.right}>
