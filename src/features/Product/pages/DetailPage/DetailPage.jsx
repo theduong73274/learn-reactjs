@@ -1,5 +1,5 @@
 import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
-import ProductThumbnail from '../components/ProductThumbnail';
+import ProductThumbnail from 'features/Product/components/ProductThumbnail';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 	right: {
 		flex: '1 1 0',
+        padding: theme.spacing(1.5),
 	},
 
 	pagination: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function DetailsPage(props) {
+function DetailPage(props) {
     const classes = useStyles();
 
     return (
@@ -50,4 +51,4 @@ function DetailsPage(props) {
     );
 }
 
-export default DetailsPage;
+export default DetailPage;
