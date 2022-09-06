@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '@material-ui/core';
-import { STATIC_HOST } from 'constants/index';
 import { THUMBNAIL_PLACEHOLDER } from 'constants/common';
+import { STATIC_HOST } from 'constants/index';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+
 // import Swiper from 'swiper';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import './styles.scss';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import './styles.scss';
 
 ProductThumbnail.propTypes = {
 	product: PropTypes.object,
