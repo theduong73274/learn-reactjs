@@ -78,3 +78,10 @@ FILTER_LIST
 - isRemovable: boolean
 - onRemove: func
 - onToggle: func
+
+
+```
+DetailPage section handleSubmit
+|__ AddToCartForm (form management)
+|  |__ QuantityField 
+```
