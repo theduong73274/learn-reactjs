@@ -85,3 +85,24 @@ DetailPage section handleSubmit
 |__ AddToCartForm (form management)
 |  |__ QuantityField 
 ```
+
+
+/products/:productId --> ProductDescription
+/products/:productId/additional --> ProductAdditional
+/products/:productId/reviews --> ProductReviews
+
+
+DetailPage
+Click addToCart
+Open Mini Cart
+Go to Cart Page
+...
+
+Cart
+- showMiniCart: true / false
+- cartItems -> item (product, quantity)
+
+State tính toán phụ thuộc state available
+- cartItemsCount
+- cartTotal
+--> createSelector()

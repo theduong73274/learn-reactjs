@@ -21,7 +21,9 @@ PasswordField.propTypes = {
 function PasswordField(props) {
 	const { form, name, label, disabled } = props;
 
-	const { errors } = form;
+	// console.log(form);
+	// const { errors } = form;
+	const { errors } = form.formState;
 	const hasError = !!errors[name];
 
 	const [showPassword, setShowPassword] = useState(false);
@@ -32,21 +34,29 @@ function PasswordField(props) {
 	return (
 		<FormControl error={hasError} fullWidth margin="normal" variant="outlined">
 			<InputLabel htmlFor={name}>{label}</InputLabel>
+
 			<Controller
 				name={name}
 				control={form.control}
-				as={OutlinedInput}
-				id={name}
-				type={showPassword ? 'text' : 'password'}
-				label={label}
-				endAdornment={
-					<InputAdornment position="end">
-						<IconButton aria-label="toggle password visibility" onClick={toggleShowPassword} edge="end">
-							{showPassword ? <Visibility /> : <VisibilityOff />}
-						</IconButton>
-					</InputAdornment>
-				}
-				disabled={disabled}
+				// as={OutlinedInput}
+				render={({ onChange, onBlur, value, name }) => (
+					<OutlinedInput
+						id={name}
+						type={showPassword ? 'text' : 'password'}
+						label={label}
+						endAdornment={
+							<InputAdornment position="end">
+								<IconButton aria-label="toggle password visibility" onClick={toggleShowPassword} edge="end">
+									{showPassword ? <Visibility /> : <VisibilityOff />}
+								</IconButton>
+							</InputAdornment>
+						}
+						disabled={disabled}
+						value={value}
+						onChange={onChange}
+						onBlur={onBlur}
+					/>
+				)}
 			/>
 			<FormHelperText error={!!hasError}>{errors[name]?.message}</FormHelperText>
 		</FormControl>

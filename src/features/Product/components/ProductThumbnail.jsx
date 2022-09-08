@@ -42,34 +42,34 @@ function ProductThumbnail({ product }) {
 				className="mySwiper2"
 			>
 				<SwiperSlide>
-					<img src={thumbnailUrl} />
+					<img src={thumbnailUrl} alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-2.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-3.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-4.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-5.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-6.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-7.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-8.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-9.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-10.jpg" alt={product.name} />
 				</SwiperSlide>
 			</Swiper>
 
@@ -84,34 +84,34 @@ function ProductThumbnail({ product }) {
 				className="mySwiper"
 			>
 				<SwiperSlide>
-					<img src={thumbnailUrl} />
+					<img src={thumbnailUrl} alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-2.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-3.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-4.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-5.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-6.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-7.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-8.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-9.jpg" alt={product.name} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+					<img src="https://swiperjs.com/demos/images/nature-10.jpg" alt={product.name} />
 				</SwiperSlide>
 			</Swiper>
 		</Box>
