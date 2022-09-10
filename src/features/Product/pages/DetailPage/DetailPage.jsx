@@ -1,4 +1,5 @@
 import { Box, Container, Grid, LinearProgress, makeStyles, Paper } from '@material-ui/core';
+import { addToCart } from 'features/Cart/cartSlice';
 import AddToCartForm from 'features/Product/components/AddToCartForm';
 import useProductDetail from 'features/Product/components/hooks/useProductDetail';
 import ProductAdditional from 'features/Product/components/ProductAdditional';
@@ -7,9 +8,8 @@ import ProductInfo from 'features/Product/components/ProductInfo';
 import ProductMenu from 'features/Product/components/ProductMenu';
 import ProductReviews from 'features/Product/components/ProductReviews';
 import ProductThumbnail from 'features/Product/components/ProductThumbnail';
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
-import { useRouteMatch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -52,6 +52,8 @@ function DetailPage() {
 		url,
 	} = useRouteMatch();
 
+	const dispatch = useDispatch();
+
 	const { product, loading } = useProductDetail(productId);
 
 	if (loading) {
@@ -63,8 +65,14 @@ function DetailPage() {
 		);
 	}
 
-	const handleAddToCartSubmit = (formValues) => {
-		console.log('Form Submit', formValues);
+	const handleAddToCartSubmit = ({ quantity }) => {
+		const action = addToCart({
+			id: product.id,
+			product,
+			quantity,
+		});
+		console.log(action);
+		dispatch(action);
 	};
 
 	return (
